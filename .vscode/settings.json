@@ -1,6 +1,8 @@
 {
   "files.associations": {
     "*.embeddedhtml": "html",
-    "force.h": "c"
+    "force.h": "c",
+    "velocity.h": "c",
+    "vector.h": "c"
   }
 }
