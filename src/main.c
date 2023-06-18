@@ -2,5 +2,6 @@
 
 int main()
 {
+    PunctualBody *pb = punctual_body_new();
     
 }

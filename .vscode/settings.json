@@ -3,6 +3,8 @@
     "*.embeddedhtml": "html",
     "force.h": "c",
     "velocity.h": "c",
-    "vector.h": "c"
+    "vector.h": "c",
+    "system.h": "c",
+    "energy.h": "c"
   }
 }
