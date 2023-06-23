@@ -1,15 +1,20 @@
+#include <stdio.h>
 #include <stdlib.h>
+#include <pthread.h>
 #include <punctual_body.h>
 
 PunctualBody *punctual_body_new()
 {
-    PunctualBody * pb = malloc(sizeof(PunctualBody*));
+    PunctualBody * pb = malloc(sizeof(PunctualBody));
     
-    Vector *position = malloc(sizeof(Vector*));
+    Vector *position = vector_new();
     pb->position = position;
     
-    Velocity *v = malloc(sizeof(Velocity *));
+    Velocity *v = velocity_new();
     pb->v = v;
+
+    punctual_body_time_init(pb);
+    pb->time = 0;
 
     return pb;
 }
@@ -32,4 +37,13 @@ void punctual_body_set_velocity(PunctualBody *pb, Velocity *v)
 void punctual_body_destroy(PunctualBody *pb)
 {
     free(pb);
+}
+
+void punctual_body_time_init(PunctualBody *pb)
+{
+}
+
+
+void *punctual_body_time_counter(void *pb)
+{
 }

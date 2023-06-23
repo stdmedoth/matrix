@@ -4,9 +4,9 @@
 
 Force *force_new()
 {
-    Force * f = malloc(sizeof(Force*));
+    Force * f = malloc(sizeof(Force));
     
-    Vector *v = malloc(sizeof(Vector*));
+    Vector *v = vector_new();
     f->v = v;
     
     return f;

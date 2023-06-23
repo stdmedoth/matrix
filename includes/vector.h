@@ -8,4 +8,15 @@ typedef struct _vector
     int z;
 } Vector;
 
+Vector *vector_new();
+void vector_set_x(Vector *v, int x);
+
+void vector_set_y(Vector *v, int y);
+
+void vector_set_z(Vector *v, int z);
+
+void vector_set_module(Vector *v, double m);
+
+void vector_destroy(Vector *v);
+
 #endif 
