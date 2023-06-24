@@ -29,25 +29,33 @@ void system_run(System *s)
 {
     while(1){
         for(int i=0; i < s->pb_index; i++){
-                PunctualBody *pb = s->punctual_bodies[i];
-                Velocity *v = punctual_body_get_velocity(pb);
-                if(v->module != 0){
-                    
-                    Vector *position = punctual_body_get_position(pb);
-                    Vector *v_vector = velocity_get_vector(v);
-                    
-                    int new_x = vector_get_x(position) + vector_get_x(v_vector);
-                    int new_y = vector_get_y(position) + vector_get_y(v_vector);
-                    int new_z = vector_get_z(position) + vector_get_z(v_vector);
+            PunctualBody *pb = s->punctual_bodies[i];
 
-                    vector_set_x(position, new_x);
-                    vector_set_y(position, new_y);
-                    vector_set_z(position, new_z);
-                }
+            Velocity *v = punctual_body_get_velocity(pb);
+            double v_module = velocity_get_module(v);
+            MechanicalEnergy *me = punctual_body_get_energy(pb);
+            me->kine.m = pb->m;
+            me->kine.v = v;
 
+            if(v_module != 0){
+                
                 Vector *position = punctual_body_get_position(pb);
-                printf("pb position (%d,%d,%d)\n",vector_get_x(position), vector_get_y(position), vector_get_z(position));
+                Vector *v_vector = velocity_get_vector(v);
+                
+                int new_x = vector_get_x(position) + vector_get_x(v_vector);
+                int new_y = vector_get_y(position) + vector_get_y(v_vector);
+                int new_z = vector_get_z(position) + vector_get_z(v_vector);
+
+                vector_set_x(position, new_x);
+                vector_set_y(position, new_y);
+                vector_set_z(position, new_z);
             }
+
+            Vector *position = punctual_body_get_position(pb);
+            printf("pb position (%d,%d,%d)\n",vector_get_x(position), vector_get_y(position), vector_get_z(position));
+            printf("pb kinect energy (%f)\n",energy_get_kinect_value(me));
+        }
+        break ;
     }
     
 

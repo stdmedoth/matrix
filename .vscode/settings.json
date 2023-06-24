@@ -7,6 +7,7 @@
     "system.h": "c",
     "energy.h": "c",
     "inertia.h": "c",
-    "punctual_body.h": "c"
+    "punctual_body.h": "c",
+    "stdlib.h": "c"
   }
 }
