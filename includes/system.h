@@ -7,7 +7,16 @@ typedef struct  _system
 {
     MechanicalEnergy me;
     time_t *time;
-    void *punctual_bodies;
+    int pb_index;
+    void **punctual_bodies;
 } System;
+
+System *system_new();
+
+void system_run(System *s);
+void system_add_body(System *s, void *pb);
+
+void system_destroy(System *s);
+
 
 #endif

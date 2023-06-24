@@ -13,10 +13,17 @@ PunctualBody *punctual_body_new()
     Velocity *v = velocity_new();
     pb->v = v;
 
-    punctual_body_time_init(pb);
-    pb->time = 0;
-
     return pb;
+}
+
+Velocity *punctual_body_get_velocity(PunctualBody *pb)
+{
+    return pb->v;
+}
+
+Vector *punctual_body_get_position(PunctualBody *pb)
+{
+    return pb->position;
 }
 
 void punctual_body_set_position(PunctualBody *pb, Vector *position)
@@ -39,11 +46,3 @@ void punctual_body_destroy(PunctualBody *pb)
     free(pb);
 }
 
-void punctual_body_time_init(PunctualBody *pb)
-{
-}
-
-
-void *punctual_body_time_counter(void *pb)
-{
-}

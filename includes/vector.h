@@ -9,6 +9,13 @@ typedef struct _vector
 } Vector;
 
 Vector *vector_new();
+
+int vector_get_x(Vector *v);
+
+int vector_get_y(Vector *v);
+
+int vector_get_z(Vector *v);
+
 void vector_set_x(Vector *v, int x);
 
 void vector_set_y(Vector *v, int y);

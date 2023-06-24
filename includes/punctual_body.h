@@ -12,9 +12,6 @@ typedef struct _punctual_body
     Vector *position;
     double m;
     Velocity *v;
-
-    pthread_t *pt;
-    time_t time;
 } PunctualBody;
 
 PunctualBody *punctual_body_new();
@@ -25,9 +22,9 @@ void punctual_body_set_mass(PunctualBody *pb, double m);
 
 void punctual_body_set_velocity(PunctualBody *pb, Velocity *v);
 
-void punctual_body_time_init(PunctualBody *pb);
+Velocity *punctual_body_get_velocity(PunctualBody *pb);
 
-void *punctual_body_time_counter(void *pb);
+Vector *punctual_body_get_position(PunctualBody *pb);
 
 void punctual_body_destroy(PunctualBody *pb);
 

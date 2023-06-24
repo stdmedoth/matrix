@@ -5,15 +5,20 @@ Velocity *velocity_new()
 {
     Velocity *v = malloc(sizeof(Velocity));
     
-    Vector *position = vector_new();
-    v->position = position;
+    Vector *vector = vector_new();
+    v->vector = vector;
 
     return v;
 }
 
-void velocity_set_position(Velocity *v, Vector *position)
+Vector *velocity_get_vector(Velocity *v)
 {
-    v->position = position;
+    return v->vector;
+}
+
+void velocity_set_position(Velocity *v, Vector *vector)
+{
+    v->vector = vector;
 }
 
 void velocity_set_module(Velocity *v, double m)
