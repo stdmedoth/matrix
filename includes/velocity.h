@@ -5,7 +5,18 @@
 
 typedef struct _velocity
 {
-    Vector position;
+    Vector *vector;
+    double module;
 } Velocity;
+
+Velocity *velocity_new();
+
+Vector *velocity_get_vector(Velocity *v);
+
+void velocity_set_position(Velocity *v, Vector *position);
+
+void velocity_set_module(Velocity *v, double m);
+
+void velocity_destroy(Velocity *v);
 
 #endif

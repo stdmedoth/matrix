@@ -5,6 +5,8 @@
     "velocity.h": "c",
     "vector.h": "c",
     "system.h": "c",
-    "energy.h": "c"
+    "energy.h": "c",
+    "inertia.h": "c",
+    "punctual_body.h": "c"
   }
 }
