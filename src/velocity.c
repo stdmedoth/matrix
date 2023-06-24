@@ -26,6 +26,11 @@ void velocity_set_module(Velocity *v, double m)
     v->module = m;
 }
 
+double velocity_get_module(Velocity *v)
+{
+    return v->module;
+}
+
 void velocity_destroy(Velocity *v)
 {
     free(v);

@@ -8,7 +8,7 @@ SRC     := ./src
 SRCS    := $(wildcard $(SRC)/*.c)
 OBJS    := $(patsubst $(SRC)/%.c,$(OBJ)/%.o,$(SRCS))
 EXE     := $(BIN)/matrix.o
-CFLAGS  := -I $(INCLUDE) -pthread -g
+CFLAGS  := -I $(INCLUDE) -pthread -g -lm
 
 .PHONY: all run clean
 

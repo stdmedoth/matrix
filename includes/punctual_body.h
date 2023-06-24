@@ -3,7 +3,7 @@
 
 #include <vector.h>
 #include <system.h>
-#include <pthread.h>
+#include <energy.h>
 #include <velocity.h>
 
 typedef struct _punctual_body
@@ -12,6 +12,8 @@ typedef struct _punctual_body
     Vector *position;
     double m;
     Velocity *v;
+    
+    MechanicalEnergy *me;
 } PunctualBody;
 
 PunctualBody *punctual_body_new();
@@ -25,6 +27,8 @@ void punctual_body_set_velocity(PunctualBody *pb, Velocity *v);
 Velocity *punctual_body_get_velocity(PunctualBody *pb);
 
 Vector *punctual_body_get_position(PunctualBody *pb);
+
+MechanicalEnergy *punctual_body_get_energy(PunctualBody *pb);
 
 void punctual_body_destroy(PunctualBody *pb);
 
