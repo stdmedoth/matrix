@@ -6,7 +6,6 @@
 typedef struct _velocity
 {
     Vector *vector;
-    double module;
 } Velocity;
 
 Velocity *velocity_new();

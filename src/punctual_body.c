@@ -4,12 +4,12 @@
 
 PunctualBody *punctual_body_new()
 {
-    PunctualBody * pb = malloc(sizeof(PunctualBody));
+    PunctualBody *pb = malloc(sizeof(PunctualBody));
     pb->m = 0;
 
     Vector *position = vector_new();
     pb->position = position;
-    
+
     Velocity *v = velocity_new();
     pb->v = v;
 
@@ -48,10 +48,11 @@ void punctual_body_set_mass(PunctualBody *pb, double m)
 void punctual_body_set_velocity(PunctualBody *pb, Velocity *v)
 {
     pb->v = v;
+    pb->me->kine.m = pb->m;
+    pb->me->kine.v = v;
 }
 
 void punctual_body_destroy(PunctualBody *pb)
 {
     free(pb);
 }
-
