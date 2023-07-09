@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <system.h>
 #include <vector.h>
+#include <collision.h>
 #include <punctual_body.h>
 
 System *system_new()
@@ -27,6 +28,7 @@ void system_destroy(System *s)
 
 void system_run(System *s)
 {
+    int time = 0;
     while(1){
         for(int i=0; i < s->pb_index; i++){
             PunctualBody *pb = s->punctual_bodies[i];
@@ -52,10 +54,17 @@ void system_run(System *s)
             }
 
             Vector *position = punctual_body_get_position(pb);
-            printf("pb position (%d,%d,%d)\n",vector_get_x(position), vector_get_y(position), vector_get_z(position));
-            printf("pb kinect energy (%f)\n",energy_get_kinect_value(me));
+            char text[200];
+            sprintf(text, "time: %d pb position (%d,%d,%d)\n", time, vector_get_x(position), vector_get_y(position), vector_get_z(position));
+            printf(text);
+            
+            sprintf(text, "time: %d pb kinect energy (%f)\n", time, energy_get_kinect_value(me));
+            printf(text);
+            collision_check_collisions(s);
+            
+
         }
-        break ;
+        time++; // 1 second
     }
     
 

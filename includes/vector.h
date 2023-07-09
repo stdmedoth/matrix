@@ -24,6 +24,8 @@ void vector_set_z(Vector *v, int z);
 
 void vector_set_module(Vector *v, double m);
 
+int vector_component_compair(Vector *v1, Vector *v2);
+
 void vector_destroy(Vector *v);
 
-#endif 
+#endif

@@ -8,6 +8,8 @@
     "energy.h": "c",
     "inertia.h": "c",
     "punctual_body.h": "c",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "math.h": "c",
+    "collision.h": "c"
   }
 }

@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <matrix.h>
 #include <vector.h>
 
 Vector *vector_new()
@@ -45,6 +46,17 @@ void vector_set_z(Vector *v, int z)
 void vector_set_module(Vector *v, double m)
 {
     v->module = m;
+}
+
+int vector_component_compair(Vector *v1, Vector *v2)
+{
+    int is_x_equivalent = (v1->x == v2->x);
+    int is_y_equivalent = (v1->y == v2->y);
+    int is_z_equivalent = (v1->z == v2->z);
+    
+    if(is_x_equivalent && is_y_equivalent && is_z_equivalent) return TRUE;
+
+    return FALSE;
 }
 
 void vector_destroy(Vector *v)
